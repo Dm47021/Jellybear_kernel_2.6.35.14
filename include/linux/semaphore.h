@@ -29,6 +29,9 @@ struct semaphore {
 #define DECLARE_MUTEX(name)	\
 	struct semaphore name = __SEMAPHORE_INITIALIZER(name, 1)
 
+#define DEFINE_SEMAPHORE(name)  \
+  struct semaphore name = __SEMAPHORE_INITIALIZER(name, 1)
+
 static inline void sema_init(struct semaphore *sem, int val)
 {
 	static struct lock_class_key __key;
