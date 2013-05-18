@@ -104,11 +104,11 @@ extern struct atmel_i2c_platform_data atmel_data;
 
 #define MSM_PMEM_SF_SIZE	0x1700000
 #ifdef CONFIG_FB_MSM_TRIPLE_BUFFER
-#define MSM_FB_SIZE            0x780000
+#define MSM_FB_SIZE            0x465000 /* 480 * 800 * 4bpp * 3 Pages */ // 0x780000
 #else
-#define MSM_FB_SIZE            0x500000
+#define MSM_FB_SIZE            0x2ee000 /* 480 * 800 * 4bpp * 2 Pages */ // 0x500000
 #endif
-#define MSM_GPU_PHYS_SIZE       SZ_2M
+#define MSM_GPU_PHYS_SIZE       SZ_4M
 #define MSM_PMEM_ADSP_SIZE      0x1800000
 #define MSM_FLUID_PMEM_ADSP_SIZE	0x2800000
 #define PMEM_KERNEL_EBI1_SIZE   0x600000
