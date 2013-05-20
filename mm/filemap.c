@@ -24,6 +24,7 @@
 #include <linux/file.h>
 #include <linux/uio.h>
 #include <linux/hash.h>
+#include <linux/cleancache.h>
 #include <linux/writeback.h>
 #include <linux/backing-dev.h>
 #include <linux/pagevec.h>
@@ -118,6 +119,11 @@
 void __remove_from_page_cache(struct page *page)
 {
 	struct address_space *mapping = page->mapping;
+
+        if (PageUptodate(page))
+    cleancache_put_page(page);
+  else
+    cleancache_flush_page(mapping, page);
 
 	radix_tree_delete(&mapping->page_tree, page->index);
 	page->mapping = NULL;

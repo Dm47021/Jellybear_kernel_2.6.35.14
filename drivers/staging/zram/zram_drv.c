@@ -179,7 +179,7 @@ static void zram_discard(struct zram *zram, struct bio *bio)
 
 	if (unlikely(!zram->init_done))
 		goto out;
-		
+
 	npages = bio->bi_size / PAGE_SIZE;
 	index = bio->bi_sector >> SECTORS_PER_PAGE_SHIFT;
 

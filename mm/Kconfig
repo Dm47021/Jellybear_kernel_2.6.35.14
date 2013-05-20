@@ -301,3 +301,9 @@ config NOMMU_INITIAL_TRIM_EXCESS
 	  of 1 says that all excess pages should be trimmed.
 
 	  See Documentation/nommu-mmap.txt for more information.
+
+config CLEANCACHE
+  bool "Enable cleancache pseudo-RAM driver to cache clean pages"
+  default y
+  help
+      Enable Cleancache Bitch
